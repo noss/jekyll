@@ -1,5 +1,8 @@
-module Jekyll
+require "base64"
+require "uri"
 
+module Jekyll
+  
   module Filters
     def textilize(input)
       RedCloth.new(input).to_html
@@ -23,6 +26,14 @@ module Jekyll
 
     def cgi_escape(input)
       CGI::escape(input)
+    end
+
+    def escape(input)
+      URI.escape(input, ":/?&")
+    end
+
+    def encode64(input)
+      Base64.encode64(input)
     end
 
     def number_of_words(input)
