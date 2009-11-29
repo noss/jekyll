@@ -9,7 +9,7 @@ module Jekyll
     end
 
     def date_to_string(date)
-      date.strftime("%d %b %Y")
+      date.strftime("%Y %m %d")
     end
 
     def date_to_long_string(date)
